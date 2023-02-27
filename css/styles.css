@@ -20,11 +20,6 @@ html {
   box-sizing: border-box;
 }
 
-/* *,
-*::before,
-*::after {
-  box-sizing: inherit;
-} */
 
 body {
   font-family: var(--font_primary, "Arial", sans-serif);
@@ -693,6 +688,78 @@ a {
   height: 24px;
 }
 
+.subscribe-container {
+  margin-left: auto;
+}
+
+.subscribe {
+  display: flex;
+}
+
+.subscribe-email {
+  width: 264px;
+  height: 40px;
+  padding: 8px 16px;
+  margin-right: 24px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.6);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-email:focus,
+.subscribe-email:hover {
+  border: 1px solid var(--color_iris);
+}
+
+.subscribe-button {
+  background: var(--color_iris);
+  border-radius: 4px;
+  display: flex;
+  min-width: 165px;
+  height: 40px;
+  /* flex-direction: row; */
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  gap: 16px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); /*анимация перехода (изменение 3 свойств сразу)*/
+}
+
+.subscribe-button:focus,
+.subscribe-button:hover {
+  background-color: var(--color_ocean);
+  color: var(--color_white);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+.subscribe-button::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/send.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 /*Модальное окно и бекдроп*/
 .backdrop {
   position: fixed;
@@ -719,7 +786,7 @@ a {
   top: 50%;
   left: 50%;
   min-width: 408px;
-  min-height: 576px;
+  min-height: 584px;
   background-color: #fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -754,4 +821,196 @@ a {
 .button-close:focus {
   background-color: var(--color_ocean);
   fill: var(--color_white);
+}
+
+/* Form */
+
+.form-title {
+  position: absolute;
+  top: 72px;
+  left: 24px;
+  width: 360px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #2e2f42;
+}
+
+.form {
+  position: absolute;
+  top: 112px;
+  left: 24px;
+  width: 360px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.form-label {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 4px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+}
+
+.form-input {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 8px 38px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-field:focus input,
+.form-field:hover input {
+  border: 1px solid var(--color_iris);
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.form-icon {
+  position: absolute;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input:focus + .form-icon,
+.form-input:hover + .form-icon {
+  fill: var(--color_iris);
+}
+
+.comment {
+  resize: none;
+  width: 100%;
+  height: 120px;
+  padding: 8px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-field:focus .comment,
+.form-field:hover .comment {
+  border: 1px solid var(--color_iris);
+}
+
+.comment::placeholder {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.policy-checkbox {
+  /*Скрываем чекбокс через  Visually-hidden*/
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.checkbox-icon {
+  /*Рисуем свой чекбокс*/
+  display: inline-block;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  border: 1.25px solid #2e2f42;
+  border-radius: 2px;
+}
+
+.policy-checkbox:checked + .checkbox-icon {
+  border: 1.25px solid var(--color_ocean);
+  background-color: var(--color_ocean);
+  background-image: url(../images/check.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  padding: 4px 3px;
+}
+
+.policy-text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #757575;
+}
+
+.form-button {
+  background-color: var(--color_iris);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border-color: transparent;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--color_white);
+  min-width: 169px;
+  height: 56px;
+  cursor: pointer;
+  font-family: "Roboto";
+  font-size: 16px;
+  margin: 0 auto;
+  margin-top: 24px;
+  padding: 16px 32px;
+  border: none;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); /*анимация перехода (изменение 3 свойств сразу)*/
+}
+
+.form-button:active,
+.form-button:focus,
+.form-button:hover {
+  background-color: var(--color_ocean);
+  color: var(--color_white);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
