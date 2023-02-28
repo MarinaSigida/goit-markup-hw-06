@@ -20,7 +20,6 @@ html {
   box-sizing: border-box;
 }
 
-
 body {
   font-family: var(--font_primary, "Arial", sans-serif);
   color: var(--color_slate);
@@ -694,13 +693,14 @@ a {
 
 .subscribe {
   display: flex;
+  gap: 24px;
 }
 
 .subscribe-email {
   width: 264px;
   height: 40px;
   padding: 8px 16px;
-  margin-right: 24px;
+  /* margin-right: 24px; */
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
@@ -785,8 +785,9 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 408px;
-  min-height: 584px;
+  width: 408px;
+  height: 584px;
+  padding: 72px 24px 24px;
   background-color: #fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -826,10 +827,10 @@ a {
 /* Form */
 
 .form-title {
-  position: absolute;
   top: 72px;
   left: 24px;
-  width: 360px;
+  text-align: center;
+  margin-bottom: 16px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -840,20 +841,15 @@ a {
   color: #2e2f42;
 }
 
-.form {
-  position: absolute;
-  top: 112px;
-  left: 24px;
-  width: 360px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 .form-field {
   position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 8px;
+}
+
+.form-field:last-child {
+  margin-bottom: 0;
 }
 
 .form-label {
@@ -882,6 +878,7 @@ a {
 .form-field:focus input,
 .form-field:hover input {
   border: 1px solid var(--color_iris);
+  outline: transparent;
 }
 
 .input-wrap {
@@ -890,10 +887,6 @@ a {
 
 .form-icon {
   position: absolute;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
@@ -912,6 +905,7 @@ a {
   width: 100%;
   height: 120px;
   padding: 8px 16px;
+  margin-bottom: 8px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -992,7 +986,6 @@ a {
   letter-spacing: 0.04em;
   color: var(--color_white);
   min-width: 169px;
-  height: 56px;
   cursor: pointer;
   font-family: "Roboto";
   font-size: 16px;
